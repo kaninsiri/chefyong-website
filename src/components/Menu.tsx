@@ -15,11 +15,13 @@ export default function Menu() {
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">{tr(ui.menu.eyebrow)}</span>
-          <h2>{tr(ui.menu.title)}</h2>
+          <h2>{tr(ui.menu.signatureTitle)}</h2>
           <p className="section-head__sub">{tr(ui.menu.sub)}</p>
         </div>
 
         <Signature />
+
+        <h3 className="menu__all-head">{tr(ui.menu.title)}</h3>
 
         {menu.map((cat) => (
           <div key={cat.id} className="menu__cat">
