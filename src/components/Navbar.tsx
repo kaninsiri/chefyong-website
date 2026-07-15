@@ -39,10 +39,10 @@ export default function Navbar() {
         </a>
 
         <nav className="navbar__nav">
-          <div className="navbar__links" onClick={() => setMenuOpen(false)}>
-            <a href="#about">{tr(ui.nav.about)}</a>
-            <a href="#menu">{tr(ui.nav.menu)}</a>
-            <a href="#contact">{tr(ui.nav.contact)}</a>
+          <div className="navbar__links">
+            <a href="#about" onClick={() => setMenuOpen(false)}>{tr(ui.nav.about)}</a>
+            <a href="#menu" onClick={() => setMenuOpen(false)}>{tr(ui.nav.menu)}</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>{tr(ui.nav.contact)}</a>
             <LangSwitcher />
           </div>
           <a href="#order" className="navbar__cta" onClick={() => setMenuOpen(false)}>{tr(ui.nav.order)}</a>
