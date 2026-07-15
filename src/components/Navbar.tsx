@@ -6,17 +6,18 @@ import Logo from './Logo'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [onDark, setOnDark] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const { tr } = useLang()
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
-      // โปร่งใส + ตัวอักษรขาว เมื่อ navbar อยู่เหนือส่วน About (พื้นภาพเข้ม)
       const about = document.getElementById('about')
       if (about) {
         const r = about.getBoundingClientRect()
         setOnDark(r.top <= 74 && r.bottom > 74)
       }
+      setMenuOpen(false) // ปิดเมนูมือถือเมื่อเลื่อน
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -28,20 +29,33 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${onDark ? 'navbar--dark' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${onDark ? 'navbar--dark' : ''} ${menuOpen ? 'navbar--open' : ''}`}>
       <div className="container navbar__inner">
-        <a href="#top" className="navbar__brand">
+        <a href="#top" className="navbar__brand" onClick={() => setMenuOpen(false)}>
           <span className="brand-badge">
             <Logo size={40} />
           </span>
           <span className="navbar__name">{tr(site.fullName)}</span>
         </a>
+
         <nav className="navbar__nav">
-          <a href="#about">{tr(ui.nav.about)}</a>
-          <a href="#menu">{tr(ui.nav.menu)}</a>
-          <a href="#contact">{tr(ui.nav.contact)}</a>
-          <LangSwitcher />
-          <a href="#order" className="navbar__cta">{tr(ui.nav.order)}</a>
+          <div className="navbar__links" onClick={() => setMenuOpen(false)}>
+            <a href="#about">{tr(ui.nav.about)}</a>
+            <a href="#menu">{tr(ui.nav.menu)}</a>
+            <a href="#contact">{tr(ui.nav.contact)}</a>
+            <LangSwitcher />
+          </div>
+          <a href="#order" className="navbar__cta" onClick={() => setMenuOpen(false)}>{tr(ui.nav.order)}</a>
+          <button
+            className="navbar__burger"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="เมนู"
+            aria-expanded={menuOpen}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
         </nav>
       </div>
     </header>

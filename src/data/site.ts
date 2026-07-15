@@ -26,7 +26,8 @@ export const site = {
     instagram: 'https://instagram.com/chefyongcharsiu',
     instagramHandle: '@chefyongcharsiu',
     facebook: '#', // temp
-    tiktok: '#', // temp
+    tiktok: 'https://www.tiktok.com/@chefyongcharsui',
+    tiktokHandle: '@chefyongcharsui',
     line: '',
   },
 

@@ -10,7 +10,7 @@ export default function Footer() {
   const socials = [
     { key: 'ig', url: social.instagram, label: social.instagramHandle, Icon: InstagramIcon },
     { key: 'fb', url: social.facebook, label: 'Facebook', Icon: FacebookIcon },
-    { key: 'tt', url: social.tiktok, label: 'TikTok', Icon: TiktokIcon },
+    { key: 'tt', url: social.tiktok, label: social.tiktokHandle, Icon: TiktokIcon },
     { key: 'line', url: social.line, label: 'LINE', Icon: LineIcon },
   ].filter((l) => l.url)
 

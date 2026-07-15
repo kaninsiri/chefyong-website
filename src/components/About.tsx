@@ -15,6 +15,7 @@ export default function About() {
   const { tr } = useLang()
   const wrapRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
+  const [progress, setProgress] = useState(0) // 0..1 ต่อเนื่อง (ให้ node ไหลบนราง)
   const steps = story.length
 
   useEffect(() => {
@@ -27,8 +28,9 @@ export default function About() {
         const rect = el.getBoundingClientRect()
         const total = rect.height - window.innerHeight
         const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1))
-        const progress = total > 0 ? scrolled / total : 0
-        const step = Math.min(steps - 1, Math.max(0, Math.floor(progress * steps)))
+        const p = total > 0 ? scrolled / total : 0
+        setProgress(p)
+        const step = Math.min(steps - 1, Math.max(0, Math.floor(p * steps)))
         setActive((prev) => (prev === step ? prev : step))
       })
     }
@@ -68,10 +70,13 @@ export default function About() {
           <p className="about__body">{tr(story[active].body)}</p>
         </div>
 
-        <div className="about__dots" aria-hidden>
+        {/* node วิ่งบนราง — แสดงว่ากำลังไหล */}
+        <div className="about__rail" aria-hidden>
+          <span className="about__rail-fill" style={{ height: `${progress * 100}%` }} />
           {story.map((_, i) => (
-            <span key={i} className={`about__dot ${i === active ? 'is-active' : ''}`} />
+            <span key={i} className={`about__tick ${i <= active ? 'is-done' : ''}`} style={{ top: `${(i / (steps - 1)) * 100}%` }} />
           ))}
+          <span className="about__rail-node" style={{ top: `${progress * 100}%` }} />
         </div>
       </div>
     </section>

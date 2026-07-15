@@ -24,17 +24,19 @@
 .navbar--scrolled { background: rgba(251, 248, 241, 0.95); box-shadow: 0 1px 0 var(--border); }
 /* โปร่งใส + ตัวอักษรขาว เมื่ออยู่เหนือส่วน About (พื้นภาพเข้ม) */
 .navbar--dark { background: transparent !important; box-shadow: none !important; }
-.navbar--dark .navbar__name, .navbar--dark .navbar__nav a { color: #fff; }
-.navbar--dark .navbar__nav a:hover { color: var(--c-gold); }
+.navbar--dark .navbar__name, .navbar--dark .navbar__links a, .navbar--dark .navbar__burger { color: #fff; }
+.navbar--dark .navbar__links a:hover { color: var(--c-gold); }
 .navbar--dark .lang__btn { color: #fff; }
 .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .navbar__brand { display: flex; align-items: center; gap: 12px; }
 .navbar__name { font-weight: 700; font-size: 17px; color: var(--c-ink); }
-.navbar__nav { display: flex; align-items: center; gap: 36px; }
-.navbar__nav a { color: var(--c-ink); font-weight: 500; font-size: 15px; transition: color 0.2s var(--ease); }
-.navbar__nav a:hover { color: var(--c-red); }
-/* ปุ่มสั่งเลย — ทึบแดง + มน */
-.navbar__cta { padding: 10px 24px; border-radius: 999px; background: var(--c-red); color: #fff !important; font-weight: 700; transition: background 0.25s var(--ease), transform 0.2s var(--ease); }
+.navbar__nav { display: flex; align-items: center; gap: 22px; }
+.navbar__links { display: flex; align-items: center; gap: 34px; }
+.navbar__links a { color: var(--c-ink); font-weight: 500; font-size: 15px; transition: color 0.2s var(--ease); }
+.navbar__links a:hover { color: var(--c-red); }
+.navbar__burger { display: none; background: none; border: none; color: var(--c-ink); cursor: pointer; padding: 4px; place-items: center; }
+/* ปุ่มสั่งเลย — ทึบแดง มนพอดี (ไม่กลมจนเพี้ยน) */
+.navbar__cta { padding: 10px 22px; border-radius: 10px; background: var(--c-red); color: #fff !important; font-weight: 700; transition: background 0.25s var(--ease), transform 0.2s var(--ease); white-space: nowrap; }
 .navbar__cta:hover { background: var(--c-red-deep); transform: translateY(-1px); }
 
 /* ===================== HERO (พื้นหลังขาว) ===================== */
@@ -115,7 +117,7 @@
 .about__bg {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   opacity: 0; transform: scale(1.08);
-  transition: opacity 1s var(--ease), transform 7s ease-out;
+  transition: opacity 0.55s var(--ease), transform 6s ease-out;
 }
 .about__bg.is-active { opacity: 1; transform: scale(1); }
 .about__scrim {
@@ -142,10 +144,12 @@
 .about__kicker { display: inline-block; color: var(--c-gold); font-weight: 600; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 14px; }
 .about__title { font-size: clamp(1.9rem, 4.4vw, 3.4rem); color: #fff; line-height: 1.12; margin-bottom: 18px; }
 .about__body { font-size: clamp(1rem, 1.4vw, 1.15rem); font-weight: 300; line-height: 1.75; color: rgba(255, 255, 255, 0.88); max-width: 560px; }
-/* จุดบอก step ด้านขวา */
-.about__dots { position: absolute; right: max(4%, 18px); top: 50%; transform: translateY(-50%); z-index: 3; display: flex; flex-direction: column; gap: 12px; }
-.about__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); transition: all 0.4s var(--ease); }
-.about__dot.is-active { background: var(--c-gold); transform: scale(1.4); }
+/* node วิ่งบนราง (ด้านขวา) — แสดงความคืบหน้าต่อเนื่อง */
+.about__rail { position: absolute; right: max(4.5%, 18px); top: 50%; transform: translateY(-50%); z-index: 3; width: 3px; height: 168px; background: rgba(255, 255, 255, 0.22); border-radius: 3px; }
+.about__rail-fill { position: absolute; left: 0; top: 0; width: 100%; background: var(--c-gold); border-radius: 3px; }
+.about__rail-node { position: absolute; left: 50%; width: 13px; height: 13px; border-radius: 50%; background: var(--c-gold); transform: translate(-50%, -50%); box-shadow: 0 0 0 5px rgba(230, 193, 92, 0.22); }
+.about__tick { position: absolute; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); transform: translate(-50%, -50%); transition: background 0.3s var(--ease); }
+.about__tick.is-done { background: var(--c-gold); }
 
 /* ===================== MENU — การ์ดรูปซ้าย กระชับ ===================== */
 .section.menu { background: var(--c-paper); justify-content: flex-start; padding-top: 30px; padding-bottom: 56px; }
@@ -181,7 +185,7 @@
 .dish__body { padding: 13px 18px 13px 0; display: flex; flex-direction: column; justify-content: center; min-width: 0; flex: 1; }
 .dish__name { font-size: 1rem; font-weight: 700; color: var(--c-ink); line-height: 1.3; padding-right: 58px; }
 .dish__desc {
-  color: var(--text-soft); font-weight: 300; font-size: 0.8rem; margin-top: 5px; line-height: 1.5; text-align: justify;
+  color: var(--text-soft); font-weight: 300; font-size: 0.8rem; margin-top: 5px; line-height: 1.5;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   min-height: 2.4em; /* เผื่อ 2 บรรทัดเสมอ ให้การ์ดตรงกัน */
 }
@@ -242,9 +246,22 @@
 }
 @media (max-width: 620px) {
   .navbar__name { display: none; }
-  .navbar__nav { gap: 18px; }
-  .navbar__nav a:not(.navbar__cta) { font-size: 14px; }
+  .navbar__nav { gap: 12px; }
   .navbar__cta { padding: 8px 16px; }
+  .navbar__burger { display: grid; }
+  /* เมนูมือถือแบบ dropdown จาก hamburger */
+  .navbar__links {
+    position: absolute; top: 74px; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 2px;
+    background: rgba(251, 248, 241, 0.98); backdrop-filter: blur(8px);
+    padding: 10px 24px 18px; box-shadow: 0 14px 26px -14px rgba(0, 0, 0, 0.3);
+    opacity: 0; pointer-events: none; transform: translateY(-10px);
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  }
+  .navbar--open .navbar__links { opacity: 1; pointer-events: auto; transform: none; }
+  .navbar__links a { width: 100%; padding: 12px 0; font-size: 16px; color: var(--c-ink) !important; border-bottom: 1px solid var(--border); }
+  .navbar__links .lang { padding: 10px 0; }
+  .navbar__links .lang__btn { color: var(--c-ink) !important; padding-left: 0; }
   .hero { padding: 116px 0 64px; }
   /* คงการ์ด Grab/LINE MAN ให้เป็นแนวนอน 2 คอลัมน์เหมือนเดสก์ท็อป */
   .order-cards { gap: 10px; }
@@ -254,9 +271,10 @@
   .order-card__cta { font-size: 11px; }
   .dish__media { width: 92px; height: 92px; margin: 11px; }
   .footer__grid { grid-template-columns: 1fr; gap: 26px; }
+  .about { height: 320vh !important; } /* เลื่อนน้อยลง/step → เปลี่ยนฉากเร็วขึ้นบนมือถือ */
   .about__content { padding-bottom: 16vh; padding-right: 20px; }
   .about__title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
-  .about__dots { right: 12px; }
+  .about__rail { right: 12px; height: 130px; }
 }
 
 /* ===================== LANGUAGE SWITCHER ===================== */

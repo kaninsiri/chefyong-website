@@ -112,15 +112,15 @@ export const menu: MenuCategory[] = [
     id: 'pork',
     title: { th: 'หมูแดงฮ่องกงล้วนๆ', en: 'Char Siu Only', zh: '純叉燒' },
     subtitle: {
-      th: 'เนื้อหมูแดงล้วน 200 กรัม สำหรับสายจริงจัง',
+      th: 'เนื้อหมูแดงล้วน 200 กรัม สำหรับสายจริงจัง',
       en: '200g of pure char siu for serious lovers',
       zh: '純叉燒200克，饕客之選',
     },
     items: [
       {
-        name: { th: 'หมูแดงส่วนสันคอ 200 กรัม', en: 'Char Siu Neck 200g', zh: '頸肉叉燒 200克' },
+        name: { th: 'หมูแดงส่วนสันคอ 200 กรัม', en: 'Char Siu Neck 200g', zh: '頸肉叉燒 200克' },
         desc: {
-          th: 'หมูแดงสันคอคัดพิเศษ 200 กรัม เนื้อชุ่มฉ่ำ เคลือบซอสหอมเข้มเต็มคำ',
+          th: 'หมูแดงสันคอคัดพิเศษ 200 กรัม เนื้อชุ่มฉ่ำ เคลือบซอสหอมเข้มเต็มคำ',
           en: 'Premium pork neck char siu 200g, juicy and fully glazed in rich sauce',
           zh: '精選頸肉叉燒200克，鮮嫩多汁，裹滿濃香醬汁',
         },
@@ -129,9 +129,9 @@ export const menu: MenuCategory[] = [
         ingredients: ['pork-neck'],
       },
       {
-        name: { th: 'หมูแดงส่วนสามชั้น 200 กรัม', en: 'Char Siu Belly 200g', zh: '五花叉燒 200克' },
+        name: { th: 'หมูแดงส่วนสามชั้น 200 กรัม', en: 'Char Siu Belly 200g', zh: '五花叉燒 200克' },
         desc: {
-          th: 'หมูแดงสามชั้นคัดพิเศษ 200 กรัม ชั้นมันบางละมุนละลายในปาก',
+          th: 'หมูแดงสามชั้นคัดพิเศษ 200 กรัม ชั้นมันบางละมุนละลายในปาก',
           en: 'Premium pork belly char siu 200g, thin melt-in-your-mouth layers',
           zh: '精選五花叉燒200克，層次分明，入口即化',
         },
@@ -140,9 +140,9 @@ export const menu: MenuCategory[] = [
         ingredients: ['pork-belly'],
       },
       {
-        name: { th: 'หมูแดงผสม 200 กรัม', en: 'Mixed Char Siu 200g', zh: '雙拼叉燒 200克' },
+        name: { th: 'หมูแดงผสม 200 กรัม', en: 'Mixed Char Siu 200g', zh: '雙拼叉燒 200克' },
         desc: {
-          th: 'สามชั้นและสันคออย่างละ 100 กรัม ครบทั้งสองรสสัมผัสในจานเดียว',
+          th: 'สามชั้นและสันคออย่างละ 100 กรัม ครบทั้งสองรสสัมผัสในจานเดียว',
           en: '100g each of belly and neck — both textures on one plate',
           zh: '五花與頸肉各100克，兩種口感一次擁有',
         },
@@ -197,7 +197,7 @@ export const menu: MenuCategory[] = [
       },
       {
         name: { th: 'ข้าวสวย', en: 'Steamed Rice', zh: '白飯' },
-        desc: { th: 'ข้าวอย่างดี 220 กรัม', en: 'Premium steamed rice, 220g', zh: '優質白飯 220克' },
+        desc: { th: 'ข้าวอย่างดี 220 กรัม', en: 'Premium steamed rice, 220g', zh: '優質白飯 220克' },
         price: 20,
         image: IMG('rice.png'),
         ingredients: ['rice'],
