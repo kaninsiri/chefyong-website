@@ -1,0 +1,343 @@
+/* ===================== SHARED ===================== */
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 36px; }
+.section-head h2 { font-size: clamp(1.9rem, 4.2vw, 2.8rem); color: var(--c-ink); }
+.section-head__sub { color: var(--text-soft); margin-top: 14px; font-size: 1.05rem; font-weight: 300; }
+
+.logo-img { border-radius: 50%; object-fit: cover; display: block; }
+
+/* ตราโลโก้วงกลม (navbar/footer) — วงขาวสะอาด + เงา อ่านง่ายทุกพื้นหลัง */
+.brand-badge { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #fff; box-shadow: 0 4px 14px -5px rgba(0, 0, 0, 0.35); }
+.brand-badge .logo-img { width: 40px; height: 40px; }
+.brand-badge--lg { width: 64px; height: 64px; }
+.brand-badge--lg .logo-img { width: 56px; height: 56px; }
+
+.smart-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.smart-img--placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  background: linear-gradient(135deg, var(--c-cream-2), #e3d9c6); color: var(--c-red); height: 100%;
+}
+.smart-img__seal { font-size: 2rem; opacity: 0.5; }
+.smart-img__hint { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--c-ink-soft); opacity: 0.7; }
+
+/* ===================== NAVBAR ===================== */
+.navbar { position: sticky; top: 0; z-index: 50; transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+.navbar--scrolled { background: rgba(251, 248, 241, 0.95); box-shadow: 0 1px 0 var(--border); }
+/* โปร่งใส + ตัวอักษรขาว เมื่ออยู่เหนือส่วน About (พื้นภาพเข้ม) */
+.navbar--dark { background: transparent !important; box-shadow: none !important; }
+.navbar--dark .navbar__name, .navbar--dark .navbar__nav a { color: #fff; }
+.navbar--dark .navbar__nav a:hover { color: var(--c-gold); }
+.navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+.navbar__brand { display: flex; align-items: center; gap: 12px; }
+.navbar__name { font-weight: 700; font-size: 17px; color: var(--c-ink); }
+.navbar__nav { display: flex; align-items: center; gap: 36px; }
+.navbar__nav a { color: var(--c-ink); font-weight: 500; font-size: 15px; transition: color 0.2s var(--ease); }
+.navbar__nav a:hover { color: var(--c-red); }
+/* ปุ่มเปลี่ยนภาษา — จางหายเมื่อเลื่อนลง */
+.lang { transition: opacity 0.25s var(--ease); }
+.navbar--scrolled .lang { opacity: 0; visibility: hidden; pointer-events: none; }
+/* ปุ่มสั่งเลย — ทึบแดง + มน */
+.navbar__cta { padding: 10px 24px; border-radius: 999px; background: var(--c-red); color: #fff !important; font-weight: 700; transition: background 0.25s var(--ease), transform 0.2s var(--ease); }
+.navbar__cta:hover { background: var(--c-red-deep); transform: translateY(-1px); }
+
+/* ===================== HERO (พื้นหลังขาว) ===================== */
+.hero {
+  position: relative;
+  margin-top: -74px;
+  min-height: 100vh;
+  padding: 120px 0 72px;
+  color: var(--c-ink);
+  background: radial-gradient(circle at 50% 34%, #ffffff 0%, #fbf6ec 62%, #f4ecdd 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+/* ลายจางๆ เป็น texture หลัง hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(158, 27, 23, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(158, 27, 23, 0.045) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 78%);
+  pointer-events: none;
+}
+.hero__inner { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero__logo { margin: 0 auto 22px; width: 118px; height: 118px; display: grid; place-items: center; }
+.hero__logo .logo-img { width: 116px; height: 116px; }
+
+/* กรอบลายจีนรอบชื่อร้าน */
+.hero__frame { position: relative; padding: 34px 56px 38px; margin: 4px auto 0; color: var(--c-red); }
+.hero__eyebrow { color: var(--c-red); }
+.hero__title { font-size: clamp(2rem, 5.6vw, 3.9rem); color: var(--c-ink); }
+.hero__tagline { font-size: clamp(1rem, 2.4vw, 1.4rem); font-weight: 300; margin-top: 12px; color: var(--c-red); }
+.hero__desc { max-width: 560px; margin: 26px auto 30px; font-weight: 300; color: var(--text-soft); font-size: 1.02rem; text-align: center; }
+.hero__scroll { display: inline-block; margin-top: 28px; color: var(--c-ink-soft); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid var(--c-line); padding-bottom: 4px; }
+.hero__scroll:hover { color: var(--c-red); border-color: var(--c-red); }
+
+/* ===================== CORNER MARK (มุมลายจีน) ===================== */
+.corner-mark { position: absolute; width: 52px; height: 52px; pointer-events: none; }
+.corner-mark svg { width: 100%; height: 100%; display: block; }
+.corner-mark--tl { top: 0; left: 0; }
+.corner-mark--tr { top: 0; right: 0; transform: rotate(90deg); }
+.corner-mark--br { bottom: 0; right: 0; transform: rotate(180deg); }
+.corner-mark--bl { bottom: 0; left: 0; transform: rotate(270deg); }
+
+/* on the white hero, the order cards need a hairline so they read */
+.hero .order-card { border: 1px solid var(--border); }
+
+/* ===================== ORDER CARDS (แนวนอน โลโก้ซ้าย/ข้อความขวา) ===================== */
+.order-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 560px; margin: 0 auto; }
+.order-card {
+  display: flex; align-items: center; gap: 14px;
+  background: #fff; border-radius: 16px; padding: 16px 18px;
+  box-shadow: 0 14px 32px -16px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  text-align: left;
+}
+.order-card:not(.order-card--soon):hover { transform: translateY(-3px); box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.5); }
+.order-card--soon { cursor: not-allowed; }
+.order-card__logo { flex: none; width: 52px; height: 52px; }
+.brand-logo { display: block; width: 52px; height: 52px; }
+.brand-logo svg { display: block; width: 100%; height: 100%; }
+.order-card__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.order-card__text strong { font-weight: 700; font-size: 15px; color: var(--c-ink); }
+.order-card__cta { font-size: 13px; font-weight: 600; color: var(--c-red); }
+.order-card--soon .order-card__cta { color: var(--c-ink-soft); font-weight: 400; }
+
+/* ===================== ABOUT — pin-scroll สไตล์ Apple ===================== */
+.about { position: relative; background: #14100e; scroll-margin-top: 0; }
+.about__stage {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+/* ภาพพื้นหลังเต็มจอ crossfade + ken-burns */
+.about__bg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1.08);
+  transition: opacity 1s var(--ease), transform 7s ease-out;
+}
+.about__bg.is-active { opacity: 1; transform: scale(1); }
+.about__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(15, 10, 9, 0.9) 0%, rgba(15, 10, 9, 0.55) 44%, rgba(15, 10, 9, 0.05) 100%),
+    linear-gradient(0deg, rgba(15, 10, 9, 0.85) 0%, rgba(15, 10, 9, 0) 52%);
+}
+.about__eyebrow {
+  position: absolute; top: 100px; left: max(8%, 24px); z-index: 3;
+  color: var(--c-gold); font-weight: 600; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+}
+.about__content {
+  position: relative; z-index: 2; max-width: 640px;
+  padding: 0 24px 13vh max(8%, 24px); color: #fff;
+  animation: aboutIn 0.75s var(--ease) both;
+}
+@keyframes aboutIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.about__count { display: block; font-weight: 700; font-size: 0.95rem; color: #fff; letter-spacing: 0.06em; margin-bottom: 18px; }
+.about__count i { font-style: normal; color: rgba(255, 255, 255, 0.5); font-weight: 400; }
+.about__kicker { display: inline-block; color: var(--c-gold); font-weight: 600; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 14px; }
+.about__title { font-size: clamp(1.9rem, 4.4vw, 3.4rem); color: #fff; line-height: 1.12; margin-bottom: 18px; }
+.about__body { font-size: clamp(1rem, 1.4vw, 1.15rem); font-weight: 300; line-height: 1.75; color: rgba(255, 255, 255, 0.88); max-width: 560px; }
+/* จุดบอก step ด้านขวา */
+.about__dots { position: absolute; right: max(4%, 18px); top: 50%; transform: translateY(-50%); z-index: 3; display: flex; flex-direction: column; gap: 12px; }
+.about__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); transition: all 0.4s var(--ease); }
+.about__dot.is-active { background: var(--c-gold); transform: scale(1.4); }
+
+/* ===================== MENU — การ์ดรูปซ้าย กระชับ ===================== */
+.menu { background: var(--c-paper); }
+.menu__cat { margin-bottom: 52px; }
+.menu__cat:last-child { margin-bottom: 0; }
+/* หัวข้อหมวดเมนู — sticky ค้างใต้ navbar ระหว่างเลื่อนดูหมวดนั้น */
+.menu__cat-head { position: sticky; top: 74px; z-index: 10; background: var(--c-paper); margin-bottom: 22px; padding: 12px 0 14px; border-bottom: 1px solid var(--border); }
+.menu__cat-head h3 { font-size: 1.4rem; color: var(--c-red); }
+.menu__cat-head p { color: var(--text-soft); font-weight: 300; margin-top: 4px; font-size: 0.95rem; }
+
+.menu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dish {
+  position: relative;
+  display: flex; align-items: center;
+  background: var(--c-cream); border: 1px solid var(--border); border-radius: 12px;
+}
+/* รูปเป็นปุ่ม กดเพื่อเปิดโมดัล (ไม่มี hover ยกการ์ดแล้ว) */
+.dish__media {
+  flex: none; width: 108px; height: 108px; margin: 13px; border-radius: 8px; overflow: hidden;
+  padding: 0; border: none; background: var(--c-cream-2); cursor: pointer; position: relative;
+}
+.dish__img { width: 100%; height: 100%; transition: transform 0.4s var(--ease); }
+.dish__media:hover .dish__img { transform: scale(1.05); }
+.dish__media::after {
+  content: '⤢'; position: absolute; right: 6px; bottom: 5px;
+  width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center;
+  background: rgba(0, 0, 0, 0.5); color: #fff; font-size: 11px; opacity: 0; transition: opacity 0.2s var(--ease);
+}
+.dish__media:hover::after { opacity: 1; }
+.dish__body { padding: 13px 18px 13px 0; display: flex; flex-direction: column; justify-content: center; min-width: 0; flex: 1; }
+.dish__name { font-size: 1rem; font-weight: 700; color: var(--c-ink); line-height: 1.3; padding-right: 58px; }
+.dish__desc {
+  color: var(--text-soft); font-weight: 300; font-size: 0.8rem; margin-top: 5px; line-height: 1.5; text-align: justify;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  min-height: 2.4em; /* เผื่อ 2 บรรทัดเสมอ ให้การ์ดตรงกัน */
+}
+.dish__ingredients { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 10px; }
+.plus { color: var(--c-red); font-weight: 700; opacity: 0.55; font-size: 0.8rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px 2px 5px; border-radius: 999px;
+  background: rgba(158, 27, 23, 0.07); color: var(--c-red); font-size: 0.72rem; font-weight: 500;
+}
+.chip svg { flex: none; }
+/* ราคาแยกออกมามุมขวาบนของการ์ด */
+.dish__price { position: absolute; top: 14px; right: 16px; font-size: 1.2rem; font-weight: 700; color: var(--c-red); }
+
+/* ===================== ORDER CTA — พื้นหลังแดงเหมือน hero (เตี้ยลง) ===================== */
+.order-cta {
+  min-height: 0; padding: 76px 0;
+  color: #fff; text-align: center; position: relative; overflow: hidden;
+  background: var(--c-red);
+}
+.order-cta__inner { position: relative; }
+.order-cta__eyebrow { color: var(--c-gold); }
+.order-cta__inner h2 { color: #fff; font-size: clamp(1.9rem, 4.2vw, 2.8rem); }
+.order-cta__lead { color: rgba(255, 255, 255, 0.88); font-weight: 300; margin: 12px 0 30px; font-size: 1.1rem; }
+.order-cta__catering { margin-top: 26px; color: rgba(255, 255, 255, 0.9); font-size: 0.98rem; }
+.order-cta__catering a { color: #fff; font-weight: 700; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+
+/* ===================== FOOTER ===================== */
+.footer { background: #1a0f0d; color: rgba(255, 255, 255, 0.75); padding: 56px 0 30px; }
+.footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
+.footer__col { min-width: 0; }
+.footer__brand { display: flex; align-items: center; gap: 14px; }
+.footer__name { font-weight: 700; color: #fff; font-size: 1.1rem; }
+.footer__branch { font-size: 0.9rem; color: rgba(255, 255, 255, 0.55); font-weight: 300; }
+.footer__head { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-gold); font-weight: 600; margin-bottom: 16px; }
+.footer__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.footer__list li { display: flex; flex-direction: column; gap: 2px; }
+.footer__k { font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); }
+.footer__v { font-size: 0.95rem; color: #fff; font-weight: 300; }
+.footer__v a:hover { color: var(--c-gold); }
+.footer__tel { font-size: 1.15rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+.footer__tel:hover { color: var(--c-gold); }
+.footer__catering { display: inline-block; font-size: 1.35rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+.footer__catering:hover { color: var(--c-gold); }
+.footer__socials { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.footer__social { display: inline-flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, 0.85); font-size: 0.92rem; font-weight: 500; width: fit-content; transition: color 0.2s var(--ease); }
+.footer__social:hover { color: #fff; }
+.footer__social-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.25); flex: none; transition: background 0.2s var(--ease), border-color 0.2s var(--ease); }
+.footer__social:hover .footer__social-icon { background: var(--c-red); border-color: var(--c-red); }
+.footer__bottom { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.footer__copy { font-size: 0.85rem; color: rgba(255, 255, 255, 0.45); font-weight: 300; text-align: center; margin: 0; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 960px) {
+  .section { padding: 60px 0; }
+  .menu__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 620px) {
+  .navbar__name { display: none; }
+  .navbar__nav { gap: 18px; }
+  .navbar__nav a:not(.navbar__cta) { font-size: 14px; }
+  .navbar__cta { padding: 8px 16px; }
+  .hero { padding: 116px 0 64px; }
+  /* คงการ์ด Grab/LINE MAN ให้เป็นแนวนอน 2 คอลัมน์เหมือนเดสก์ท็อป */
+  .order-cards { gap: 10px; }
+  .order-card { padding: 11px 12px; gap: 10px; }
+  .order-card__logo, .brand-logo { width: 42px; height: 42px; }
+  .order-card__text strong { font-size: 13px; }
+  .order-card__cta { font-size: 11px; }
+  .dish__media { width: 92px; height: 92px; margin: 11px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 26px; }
+  .about__content { padding-bottom: 16vh; padding-right: 20px; }
+  .about__title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .about__dots { right: 12px; }
+}
+
+/* ===================== LANGUAGE SWITCHER ===================== */
+.lang { position: relative; }
+.lang__btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer; padding: 6px 8px;
+  font-family: var(--font); font-weight: 600; font-size: 14px; color: var(--c-ink);
+  transition: color 0.2s var(--ease);
+}
+.lang__btn:hover { color: var(--c-red); }
+.lang__menu {
+  position: absolute; top: 100%; right: 0; margin-top: 8px;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: var(--shadow-sm); padding: 6px; min-width: 118px; z-index: 60;
+}
+.lang__opt {
+  display: block; width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+  padding: 9px 12px; border-radius: 6px; font-family: var(--font); font-size: 14px; color: var(--c-ink);
+  transition: background 0.15s var(--ease);
+}
+.lang__opt:hover { background: var(--c-cream); }
+.lang__opt.is-active { color: var(--c-red); font-weight: 700; }
+
+/* ===================== IMAGE MODAL (lightbox) ===================== */
+.modal {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: rgba(20, 12, 10, 0.82); backdrop-filter: blur(2px);
+  animation: modalIn 0.2s var(--ease);
+}
+@keyframes modalIn { from { opacity: 0; } to { opacity: 1; } }
+.modal__img {
+  max-width: min(92vw, 720px); max-height: 86vh; width: auto; height: auto;
+  border-radius: 12px; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7); cursor: default;
+}
+.modal__close {
+  position: absolute; top: 20px; right: 24px; width: 44px; height: 44px;
+  display: grid; place-items: center; border-radius: 50%; cursor: pointer;
+  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff;
+  transition: background 0.2s var(--ease);
+}
+.modal__close:hover { background: rgba(255, 255, 255, 0.28); }
+
+@media (max-width: 620px) {
+  .lang__btn { padding: 6px 4px; font-size: 13px; }
+  .lang__menu { right: auto; left: 0; }
+}
+
+/* ===================== SIGNATURE CAROUSEL ===================== */
+.sig { background: var(--c-cream); padding: 76px 0; }
+.sig__head { margin-bottom: 30px; }
+.sig__carousel { position: relative; display: flex; align-items: center; gap: 12px; }
+.sig__viewport { flex: 1; overflow: hidden; border-radius: var(--radius-lg); touch-action: pan-y; }
+.sig__track { display: flex; transition: transform 0.5s var(--ease); }
+.sig__slide {
+  position: relative; flex: 0 0 100%; aspect-ratio: 16 / 8; overflow: hidden; background: #14100e;
+}
+.sig__img { width: 100%; height: 100%; object-fit: cover; }
+.sig__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(15, 10, 9, 0.88) 0%, rgba(15, 10, 9, 0.4) 55%, rgba(15, 10, 9, 0.05) 100%),
+    linear-gradient(0deg, rgba(15, 10, 9, 0.7) 0%, transparent 55%);
+}
+.sig__info { position: absolute; left: 0; bottom: 0; padding: 0 0 clamp(22px, 4vw, 40px) clamp(22px, 4vw, 44px); max-width: 560px; color: #fff; }
+.sig__badge { display: inline-block; background: var(--c-gold); color: var(--c-red-deep); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
+.sig__name { font-size: clamp(1.35rem, 3vw, 2.1rem); color: #fff; line-height: 1.2; margin-bottom: 10px; }
+.sig__desc { font-weight: 300; color: rgba(255, 255, 255, 0.9); font-size: 0.98rem; margin-bottom: 16px; max-width: 460px; }
+.sig__price { display: flex; align-items: baseline; gap: 12px; }
+.sig__now { font-size: 1.7rem; font-weight: 800; color: #fff; }
+.sig__old { font-size: 1.05rem; color: rgba(255, 255, 255, 0.6); text-decoration: line-through; }
+.sig__arrow { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 1px solid var(--border); color: var(--c-ink); cursor: pointer; box-shadow: var(--shadow-sm); transition: transform 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease); }
+.sig__arrow:hover:not(:disabled) { transform: scale(1.08); color: var(--c-red); }
+.sig__arrow:disabled { opacity: 0.35; cursor: default; }
+.sig__dots { display: flex; justify-content: center; gap: 9px; margin-top: 22px; }
+.sig__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c-line); border: none; cursor: pointer; padding: 0; transition: all 0.3s var(--ease); }
+.sig__dot.is-active { background: var(--c-red); width: 26px; border-radius: 5px; }
+@media (max-width: 620px) {
+  .sig { padding: 56px 0; }
+  .sig__arrow { display: none; }
+  .sig__slide { aspect-ratio: 4 / 5; }
+  .sig__info { max-width: 100%; padding-right: 20px; }
+  .sig__now { font-size: 1.5rem; }
+}
