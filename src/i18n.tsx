@@ -45,18 +45,21 @@ export function LangSwitcher() {
   const ref = useRef<HTMLDivElement>(null)
   const current = LANGS.find((l) => l.code === lang)!
 
-  // ปิดเมนูเมื่อคลิกนอกพื้นที่ หรือกด Esc (ไม่ปิดเองตอนเมาส์ขยับ)
+  // ปิด popover เมื่อคลิกนอกพื้นที่ / กด Esc / เลื่อนหน้า (ปุ่มยังอยู่เสมอ)
   useEffect(() => {
     if (!open) return
     const onDown = (e: PointerEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
     }
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    const onScroll = () => setOpen(false)
     document.addEventListener('pointerdown', onDown)
     document.addEventListener('keydown', onKey)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
       document.removeEventListener('pointerdown', onDown)
       document.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [open])
 

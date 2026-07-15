@@ -3,6 +3,7 @@ import { menu } from '../data/menu'
 import { useLang, ui } from '../i18n'
 import SmartImage from './SmartImage'
 import ImageModal from './ImageModal'
+import Signature from './Signature'
 import IngredientIcon, { ingredientLabel } from '../icons/IngredientIcons'
 
 export default function Menu() {
@@ -17,6 +18,8 @@ export default function Menu() {
           <h2>{tr(ui.menu.title)}</h2>
           <p className="section-head__sub">{tr(ui.menu.sub)}</p>
         </div>
+
+        <Signature />
 
         {menu.map((cat) => (
           <div key={cat.id} className="menu__cat">

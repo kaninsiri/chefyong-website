@@ -26,7 +26,7 @@ export type SignatureItem = { name: TStr; desc: TStr; price: number; oldPrice: n
 // เมนูไฮไลต์ "เชฟยง's Signature" (พร้อมไข่ดาว) — carousel, ใช้รูป 2.jpg ทั้งหมด
 export const signature: SignatureItem[] = [
   {
-    name: { th: 'ข้าวหมูแดงสันคอ Signature พร้อมไข่ดาว', en: "Signature Char Siu Rice (Neck) + Fried Egg", zh: '招牌頸肉叉燒飯 · 配煎蛋' },
+    name: { th: 'ข้าวหมูแดงสันคอ พร้อมไข่ดาว', en: 'Char Siu Rice (Neck) + Egg', zh: '頸肉叉燒飯 · 配煎蛋' },
     desc: {
       th: 'หมูแดงสันคอคัดพิเศษ หมักสูตรลับ 48 ชม. เสิร์ฟพร้อมไข่ดาวและผัก',
       en: 'Premium pork neck char siu, 48h marinade, served with a fried egg and greens',
@@ -37,7 +37,7 @@ export const signature: SignatureItem[] = [
     image: '/images/menu/opt/2.jpg',
   },
   {
-    name: { th: 'ข้าวหมูแดงสามชั้น Signature พร้อมไข่ดาว', en: 'Signature Char Siu Rice (Belly) + Fried Egg', zh: '招牌五花叉燒飯 · 配煎蛋' },
+    name: { th: 'ข้าวหมูแดงสามชั้น พร้อมไข่ดาว', en: 'Char Siu Rice (Belly) + Egg', zh: '五花叉燒飯 · 配煎蛋' },
     desc: {
       th: 'หมูแดงสามชั้นคัดพิเศษ เนื้อฉ่ำละมุน เสิร์ฟพร้อมไข่ดาวและผัก',
       en: 'Premium pork belly char siu, juicy and tender, with a fried egg and greens',
@@ -48,7 +48,7 @@ export const signature: SignatureItem[] = [
     image: '/images/menu/opt/2.jpg',
   },
   {
-    name: { th: 'ข้าวหมูแดงผสม Signature พร้อมไข่ดาว', en: 'Signature Mixed Char Siu Rice + Fried Egg', zh: '招牌雙拼叉燒飯 · 配煎蛋' },
+    name: { th: 'ข้าวหมูแดงผสม พร้อมไข่ดาว', en: 'Mixed Char Siu Rice + Egg', zh: '雙拼叉燒飯 · 配煎蛋' },
     desc: {
       th: 'สันคอและสามชั้นในจานเดียว เสิร์ฟพร้อมไข่ดาวและผัก',
       en: 'Neck and belly on one plate, served with a fried egg and greens',

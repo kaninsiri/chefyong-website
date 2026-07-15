@@ -21,14 +21,13 @@ export default function Signature() {
   }
 
   return (
-    <section className="sig" id="signature">
-      <div className="container">
-        <div className="section-head sig__head">
-          <span className="eyebrow">{tr(ui.menu.signatureEyebrow)}</span>
-          <h2>{tr(ui.menu.signatureTitle)}</h2>
-        </div>
+    <div className="sig" id="signature">
+      <div className="sig__head">
+        <span className="eyebrow">{tr(ui.menu.signatureEyebrow)}</span>
+        <h3>{tr(ui.menu.signatureTitle)}</h3>
+      </div>
 
-        <div className="sig__carousel">
+      <div className="sig__carousel">
           <button className="sig__arrow sig__arrow--prev" onClick={() => go(idx - 1)} disabled={idx === 0} aria-label="ก่อนหน้า">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
@@ -63,7 +62,6 @@ export default function Signature() {
             <button key={i} className={`sig__dot ${i === idx ? 'is-active' : ''}`} onClick={() => go(i)} aria-label={`สไลด์ ${i + 1}`} />
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   )
 }

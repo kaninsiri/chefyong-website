@@ -53,7 +53,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overscroll-behavior: none; }
+html { scroll-behavior: smooth; overscroll-behavior: none; scroll-snap-type: y proximity; }
 
 body {
   margin: 0;

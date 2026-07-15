@@ -26,15 +26,13 @@
 .navbar--dark { background: transparent !important; box-shadow: none !important; }
 .navbar--dark .navbar__name, .navbar--dark .navbar__nav a { color: #fff; }
 .navbar--dark .navbar__nav a:hover { color: var(--c-gold); }
+.navbar--dark .lang__btn { color: #fff; }
 .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .navbar__brand { display: flex; align-items: center; gap: 12px; }
 .navbar__name { font-weight: 700; font-size: 17px; color: var(--c-ink); }
 .navbar__nav { display: flex; align-items: center; gap: 36px; }
 .navbar__nav a { color: var(--c-ink); font-weight: 500; font-size: 15px; transition: color 0.2s var(--ease); }
 .navbar__nav a:hover { color: var(--c-red); }
-/* ปุ่มเปลี่ยนภาษา — จางหายเมื่อเลื่อนลง */
-.lang { transition: opacity 0.25s var(--ease); }
-.navbar--scrolled .lang { opacity: 0; visibility: hidden; pointer-events: none; }
 /* ปุ่มสั่งเลย — ทึบแดง + มน */
 .navbar__cta { padding: 10px 24px; border-radius: 999px; background: var(--c-red); color: #fff !important; font-weight: 700; transition: background 0.25s var(--ease), transform 0.2s var(--ease); }
 .navbar__cta:hover { background: var(--c-red-deep); transform: translateY(-1px); }
@@ -151,7 +149,7 @@
 
 /* ===================== MENU — การ์ดรูปซ้าย กระชับ ===================== */
 .menu { background: var(--c-paper); }
-.menu__cat { margin-bottom: 52px; }
+.menu__cat { margin-bottom: 52px; scroll-snap-align: start; scroll-margin-top: 74px; }
 .menu__cat:last-child { margin-bottom: 0; }
 /* หัวข้อหมวดเมนู — sticky ค้างใต้ navbar ระหว่างเลื่อนดูหมวดนั้น */
 .menu__cat-head { position: sticky; top: 74px; z-index: 10; background: var(--c-paper); margin-bottom: 22px; padding: 12px 0 14px; border-bottom: 1px solid var(--border); }
@@ -305,9 +303,10 @@
   .lang__menu { right: auto; left: 0; }
 }
 
-/* ===================== SIGNATURE CAROUSEL ===================== */
-.sig { background: var(--c-cream); padding: 76px 0; }
-.sig__head { margin-bottom: 30px; }
+/* ===================== SIGNATURE CAROUSEL (อยู่ในหน้าเมนู) ===================== */
+.sig { margin: 0 0 56px; }
+.sig__head { text-align: center; margin-bottom: 26px; }
+.sig__head h3 { font-size: clamp(1.5rem, 3.4vw, 2.3rem); color: var(--c-ink); }
 .sig__carousel { position: relative; display: flex; align-items: center; gap: 12px; }
 .sig__viewport { flex: 1; overflow: hidden; border-radius: var(--radius-lg); touch-action: pan-y; }
 .sig__track { display: flex; transition: transform 0.5s var(--ease); }
@@ -323,7 +322,7 @@
 }
 .sig__info { position: absolute; left: 0; bottom: 0; padding: 0 0 clamp(22px, 4vw, 40px) clamp(22px, 4vw, 44px); max-width: 560px; color: #fff; }
 .sig__badge { display: inline-block; background: var(--c-gold); color: var(--c-red-deep); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
-.sig__name { font-size: clamp(1.35rem, 3vw, 2.1rem); color: #fff; line-height: 1.2; margin-bottom: 10px; }
+.sig__name { font-size: clamp(1.2rem, 2.7vw, 2rem); color: #fff; line-height: 1.25; margin-bottom: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sig__desc { font-weight: 300; color: rgba(255, 255, 255, 0.9); font-size: 0.98rem; margin-bottom: 16px; max-width: 460px; }
 .sig__price { display: flex; align-items: baseline; gap: 12px; }
 .sig__now { font-size: 1.7rem; font-weight: 800; color: #fff; }
@@ -335,9 +334,10 @@
 .sig__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c-line); border: none; cursor: pointer; padding: 0; transition: all 0.3s var(--ease); }
 .sig__dot.is-active { background: var(--c-red); width: 26px; border-radius: 5px; }
 @media (max-width: 620px) {
-  .sig { padding: 56px 0; }
+  .sig { margin-bottom: 40px; }
   .sig__arrow { display: none; }
   .sig__slide { aspect-ratio: 4 / 5; }
   .sig__info { max-width: 100%; padding-right: 20px; }
+  .sig__name { font-size: 1.15rem; }
   .sig__now { font-size: 1.5rem; }
 }
