@@ -13,13 +13,15 @@ export default function Menu() {
   return (
     <section className="section menu" id="menu">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{tr(ui.menu.eyebrow)}</span>
-          <h2>{tr(ui.menu.signatureTitle)}</h2>
-          <p className="section-head__sub">{tr(ui.menu.sub)}</p>
-        </div>
+        <div className="menu__intro">
+          <div className="section-head">
+            <span className="eyebrow">{tr(ui.menu.eyebrow)}</span>
+            <h2>{tr(ui.menu.signatureTitle)}</h2>
+            <p className="section-head__sub">{tr(ui.menu.sub)}</p>
+          </div>
 
-        <Signature />
+          <Signature />
+        </div>
 
         <h3 className="menu__all-head">{tr(ui.menu.title)}</h3>
 

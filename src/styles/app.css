@@ -152,7 +152,7 @@
 /* หมวดติดกัน (ไม่มี margin) เพื่อให้หัวข้อถัดไปเลื่อนมาชน/ดันหัวข้อเดิมขึ้นพอดี */
 .menu__cat { margin-bottom: 0; scroll-margin-top: 74px; }
 /* หัวข้อ "เมนูทั้งหมด" ก่อนเข้าหมวดต่างๆ */
-.menu__all-head { text-align: center; font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: var(--c-red); margin: 4px 0 34px; }
+.menu__all-head { text-align: center; font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: var(--c-red); margin: 40px 0 34px; }
 .menu__cat:last-child { margin-bottom: 0; }
 /* หัวข้อหมวดเมนู — sticky ค้างใต้ navbar ระหว่างเลื่อนดูหมวดนั้น */
 .menu__cat-head { position: sticky; top: 74px; z-index: 10; background: var(--c-paper); margin-bottom: 22px; padding: 28px 0 14px; border-bottom: 1px solid var(--border); }
@@ -307,7 +307,9 @@
 }
 
 /* ===================== SIGNATURE CAROUSEL (อยู่ในหน้าเมนู) ===================== */
-.sig { margin: 0 0 56px; }
+/* โซนแรก (หัว + Signature) สูง ~1 จอ → "เมนูทั้งหมด" ถูกดันไปหน้าถัดไปทุก device */
+.menu__intro { min-height: calc(100vh - 108px); }
+.sig { margin: 0 0 24px; }
 .sig__head { text-align: center; margin-bottom: 26px; }
 .sig__head h3 { font-size: clamp(1.5rem, 3.4vw, 2.3rem); color: var(--c-ink); }
 .sig__carousel { position: relative; display: flex; align-items: center; gap: 12px; }
