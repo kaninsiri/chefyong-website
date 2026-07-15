@@ -148,8 +148,9 @@
 .about__dot.is-active { background: var(--c-gold); transform: scale(1.4); }
 
 /* ===================== MENU — การ์ดรูปซ้าย กระชับ ===================== */
-.menu { background: var(--c-paper); }
-.menu__cat { margin-bottom: 52px; scroll-margin-top: 74px; }
+.section.menu { background: var(--c-paper); justify-content: flex-start; padding-top: 30px; padding-bottom: 56px; }
+/* หมวดติดกัน (ไม่มี margin) เพื่อให้หัวข้อถัดไปเลื่อนมาชน/ดันหัวข้อเดิมขึ้นพอดี */
+.menu__cat { margin-bottom: 0; scroll-margin-top: 74px; }
 /* หัวข้อ "เมนูทั้งหมด" ก่อนเข้าหมวดต่างๆ */
 .menu__all-head { text-align: center; font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: var(--c-red); margin: 4px 0 34px; }
 .menu__cat:last-child { margin-bottom: 0; }
@@ -158,7 +159,7 @@
 .menu__cat-head h3 { font-size: 1.4rem; color: var(--c-red); }
 .menu__cat-head p { color: var(--text-soft); font-weight: 300; margin-top: 4px; font-size: 0.95rem; }
 
-.menu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.menu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-bottom: 48px; }
 .dish {
   position: relative;
   display: flex; align-items: center;
@@ -313,7 +314,7 @@
 .sig__viewport { flex: 1; overflow: hidden; border-radius: var(--radius-lg); touch-action: pan-y; }
 .sig__track { display: flex; transition: transform 0.5s var(--ease); }
 .sig__slide {
-  position: relative; flex: 0 0 100%; aspect-ratio: 16 / 8; overflow: hidden; background: #14100e;
+  position: relative; flex: 0 0 100%; height: clamp(300px, 56vh, 600px); overflow: hidden; background: #14100e;
 }
 .sig__img { width: 100%; height: 100%; object-fit: cover; }
 .sig__scrim {
@@ -338,7 +339,7 @@
 @media (max-width: 620px) {
   .sig { margin-bottom: 40px; }
   .sig__arrow { display: none; }
-  .sig__slide { aspect-ratio: 4 / 5; }
+  .sig__slide { height: clamp(280px, 56vh, 460px); }
   .sig__info { max-width: 100%; padding-right: 20px; }
   .sig__name { font-size: 1.15rem; }
   .sig__now { font-size: 1.5rem; }
